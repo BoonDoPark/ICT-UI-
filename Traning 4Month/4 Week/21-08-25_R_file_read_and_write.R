@@ -92,18 +92,41 @@ subset(st, Area>=100000 & Frost>=120)
 subset(st, Population<2000 & Murder<12)
 mean(subset(st[, 'Income'], st[,'Illiteracy'] >=2.0)) # 3683.143
 abs(mean(subset(st[, 'Income'], st[,'Illiteracy'] >= 2.0)) - mean(subset(st[, 'Income'], st[,'Illiteracy'] < 2.0))) # 875.1827
-max(st[,'Life.Exp']) # 기대수명('Life.Exp')이 가장 높은 주
-subset(st[,'Income'], st['Pennsylvania', 'Income'] < st[,'Income']) # Pennsylvania보다 수입(Income)이 높은 주
+rownames(st[which.max(st$Life.Exp),]) # 기대수명('Life.Exp')이 가장 높은 주
+rownames(subset(st, st['Pennsylvania', 'Income'] < st[,'Income'])) # Pennsylvania보다 수입(Income)이 높은 주
+# st[,'Life.Exp] == st$Life.Exp
 
 class(mtcars) # 자료구조
 dim(mtcars) # 32 11
 str(mtcars) # 자료형
 help(mtcars)
-max(mtcars['mpg'])
-mtcars
+rownames(subset(mtcars, mtcars[,'mpg'] == max(mtcars[,'mpg']))) # "Toyota Corolla"
 subset(mtcars, mtcars[,'gear']==4)
-subset(subset(mtcars, mtcars[,'gear']==4), subset(mtcars, mtcars[,'gear']==4)[,'mpg'] == min(subset(mtcars, mtcars[,'gear']==4)[,'mpg']))
+rownames(subset(subset(mtcars, mtcars[,'gear']==4)), subset(mtcars, mtcars[,'gear']==4)[,'mpg'] == min(subset(mtcars, mtcars[,'gear']==4)[,'mpg']))
 mtcars['Honda Civic', c('mpg', 'gear')] # 30.4    4
-subset(mtcars[,'mpg'], mtcars['Pontiac Firebird',] == min(mtcars['Pontiac Firebird',])) # 24.4 22.8 30.4 33.9 19.7 15.0
+rownames(subset(mtcars, mtcars['Pontiac Firebird','mpg'] < mtcars[,'mpg']))
 mean(mtcars[,'mpg']) # 20.09062
 unique(mtcars[,'gear']) # 4 3 5
+
+class(airquality) # "data.frame"
+head(airquality)
+colnames(subset(airquality, Temp == max(Temp))[c('Month','Day')]) #  8  28
+max(subset(airquality, Month == 6 & Wind == max(Wind))[,'Wind']) # 20.7
+mean(subset(airquality, Month == 7)[,'Temp']) # 83.90323
+mean(subset(airquality, Month == 5 & Ozone != 'NA')[,'Temp']) # 66.73077
+nrow(subset(airquality, Ozone > 100)) # 7
+
+str(swiss)
+head(swiss)
+rownames(subset(swiss, swiss['Agriculture'] == max(swiss['Agriculture']))) # "Herens"
+sort(as.matrix(swiss)[,'Agriculture'], decreasing = T)
+subset(swiss[, c('Catholic', 'Agriculture')], Catholic >= 80)
+subset(swiss[,c('Examination', 'Agriculture')], Agriculture < 50 & Examination < 20)
+
+setwd('C:/Users/qwe/Documents/RStudio')
+state.x77 = data.frame(state.x77)
+a = subset(state.x77[,c('Income', 'Population', 'Area')], Income >= 5000)
+a
+write.csv(a, 'rich_state.csv')
+ds = read.csv('rich_state.csv', header = T)
+ds
