@@ -102,19 +102,27 @@ str(mtcars) # 자료형
 help(mtcars)
 rownames(subset(mtcars, mtcars[,'mpg'] == max(mtcars[,'mpg']))) # "Toyota Corolla"
 subset(mtcars, mtcars[,'gear']==4)
-rownames(subset(subset(mtcars, mtcars[,'gear']==4)), subset(mtcars, mtcars[,'gear']==4)[,'mpg'] == min(subset(mtcars, mtcars[,'gear']==4)[,'mpg']))
+
+rownames(subset(subset(mtcars[c('gear','mpg')], mtcars[,'gear']==4)), subset(mtcars, mtcars[,'gear']==4)[,'mpg'] == min(subset(mtcars, mtcars[,'gear']==4)[,'mpg']))
 mtcars['Honda Civic', c('mpg', 'gear')] # 30.4    4
-rownames(subset(mtcars, mtcars['Pontiac Firebird','mpg'] < mtcars[,'mpg']))
+rownames(subset(mtcars['mpg'], mtcars['Pontiac Firebird','mpg'] < mtcars[,'mpg']))
 mean(mtcars[,'mpg']) # 20.09062
 unique(mtcars[,'gear']) # 4 3 5
 
 class(airquality) # "data.frame"
 head(airquality)
-colnames(subset(airquality, Temp == max(Temp))[c('Month','Day')]) #  8  28
-max(subset(airquality, Month == 6 & Wind == max(Wind))[,'Wind']) # 20.7
+subset(airquality, Temp == max(Temp))[c('Month','Day')]#  8  28
+airquality[airquality$Temp==max(airquality$Temp), c('Month', 'Day')] #  8  28
+
+max(subset(airquality, Month == 6)[,'Wind']) # 20.7
+max(airquality[airquality$Month==6, 'Wind'])
+
 mean(subset(airquality, Month == 7)[,'Temp']) # 83.90323
-mean(subset(airquality, Month == 5 & Ozone != 'NA')[,'Temp']) # 66.73077
+mean(airquality[airquality$Month == 7, 'Temp']) # 83.90323
+
+mean(subset(airquality, Month == 5 & Ozone != 'NA')[,'Ozone']) # 23.61538
 nrow(subset(airquality, Ozone > 100)) # 7
+length(na.omit(airquality[airquality$Ozone > 100, 'Ozone']))
 
 str(swiss)
 head(swiss)
