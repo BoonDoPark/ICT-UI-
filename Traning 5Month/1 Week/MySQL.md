@@ -4,7 +4,7 @@
 
 ### 데이터베이스 언어
 
-+ DDL(Data Defination Language) : 데이터 정의 언어
++ DDL(Data Definition Language) : 데이터 정의 언어
 + DML(Data Manipulation Language) : 데이터 조작 언어
 + DCL(Data Control Language) : 데이터 제어 언어
 
