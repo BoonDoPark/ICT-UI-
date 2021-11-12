@@ -1,0 +1,412 @@
+@charset "utf-8";
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: 'Raleway', sans-serif;
+	box-sizing: border-box;
+  min-width: 320px;
+}
+a{
+	text-decoration: none;
+	color: #222;
+}
+
+/****** header *******/
+#head{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+#head > p{
+	padding: 10px 20px;
+	background-color: #fff;
+	font-size: 25px;
+  color: #040404;
+  font-weight: bolder;
+}
+
+
+/** mobile menu bar **/
+#head > .gnb > input[id=menu_btn]{
+	display: none;
+}
+#head > .gnb > label[for=menu_btn]{
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 40px;
+
+}
+#head > .gnb > label[for=menu_btn] div{
+	width: 30px;
+	height: 2px;
+	background-color: #222;
+	position: absolute;
+	transition: .2s;
+	opacity: 1;
+}
+#head > .gnb > label[for=menu_btn] > div:nth-child(1){
+	top: 0;
+}
+#head > .gnb > label[for=menu_btn] > div:nth-child(2){
+	top: 40%;
+}
+#head > .gnb > label[for=menu_btn] > div:nth-child(3){
+	top: 80%;
+}
+#head > .gnb > input[id=menu_btn]:checked ~ label[for=menu_btn] > div:nth-child(1){
+	top: 40%;
+	transform: rotate(45deg);
+}
+#head > .gnb > input[id=menu_btn]:checked ~ label[for=menu_btn] > div:nth-child(2){
+	opacity: 0;
+}
+#head > .gnb > input[id=menu_btn]:checked ~ label[for=menu_btn] > div:nth-child(3){
+	top: 40%;
+	transform: rotate(-45deg);
+}
+
+/** main menu display **/
+#head > .gnb > .main_menu{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	background-color: #fff;
+	display: none;
+}
+#head > .gnb > input[id=menu_btn]:checked ~ .main_menu{
+	display: block;
+	z-index: 10;
+}
+#head > .gnb > .main_menu a{
+	display: block;
+	padding: 10px;
+}
+#head > .gnb > .main_menu a:hover{
+	background-color: #666;
+	color: #fff;
+}
+/**** banner section ****/
+#banner{
+	height: 80vh;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(images/bg_image.jpg);
+	/* background-image: url(images/bg_image.jpg); */
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	position: relative;
+}
+#banner > .title{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#banner > .title >h1{
+	color: #fff;
+	font-size: 7.5vw;
+	letter-spacing: 0.1em;
+  /* letter-spacing 은 오른쪽에 여백이 들어감, 균형을 맞출려면 왼쪽에 여백 추가 */
+  margin-left: 0.3em;
+}
+#banner > .title > h2{
+	color: #fff
+}
+#banner > p {
+	color: #fff;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/***** about *****/
+#about{
+	width: 300px;
+	margin: 30px auto;
+	overflow: hidden;
+}
+
+#about > .container{
+	width: 900px;
+	position: relative;
+	left: 0;
+  transition: 1s;
+}
+
+#about > input[id="tab1"]:checked ~ .container{
+  left: 0px;
+}
+#about > input[id="tab2"]:checked ~ .container{
+  left: -300px;
+}
+#about > input[id="tab3"]:checked ~ .container{
+  left: -600px;
+}
+#about > .container > .item {
+  text-align: center;
+  width: 300px;
+	float: left;
+}
+#about > .container > .item > h1 {
+	display: inline-block;
+  font-size: 50px;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  background-color: #fece48;
+  border-radius: 50%;
+	margin: 20px 0;
+}
+#about > .container > .item > h2{
+	margin: 10px 0;
+}
+/*** checkbox button ***/
+#about > input[name="tab"]{
+	display: none;
+}
+#about > .tab_btn{
+  text-align: center;
+}
+#about>.tab_btn > label{
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  background-color: #222;
+}
+#about > input[id="tab1"]:checked ~ .tab_btn label[for="tab1"],
+#about > input[id="tab2"]:checked ~ .tab_btn label[for="tab2"],
+#about > input[id="tab3"]:checked ~ .tab_btn label[for="tab3"]
+{
+	width: 10px;
+	border-radius: 50%;
+  background-color: rgb(228, 63, 63);
+}
+
+/**** portfolio ****/
+#portfolio {
+  /* 하위 모든 요소를 중앙 정렬 */
+  background-color: #eee;
+  text-align: center;
+  margin: 30px auto;
+  padding: 30px;
+}
+#portfolio > h1{
+  color: #000;
+  font-size: 3em;
+}
+#portfolio > .container > .photo {
+  width: 350px;
+  margin: 20px auto;
+}
+#portfolio > .container > .photo img {
+  display: block;
+  width: 100%;
+  margin: 10px auto;
+  opacity: 0.8;
+  transition: 0.5s;
+}
+#portfolio > .container > div:nth-of-type(2) {
+  display: none;
+}
+#portfolio > .container > div:nth-of-type(3) {
+  display: none;
+}
+#portfolio > .container > .photo img:hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/****** contact ******/
+/* CONTACT *************************/
+#contact {
+  text-align: center;
+	margin: 30px auto;
+  padding: 30px;
+}
+#contact h1 {
+  font-size: 3em;
+  color: #000;
+}
+#contact > .text {
+  display: none;
+}
+#contact > .sns {
+  width: 70%;
+  margin: 20px auto;
+}
+#contact > .sns > a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffc9cb;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  color: #fff;
+
+  position: relative;
+  overflow: hidden;
+}
+#contact > .sns > a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  background-color: blue;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
+}
+#contact > .sns > a:hover:before {
+  height: 100%;
+}
+#contact > .sns > a .icon {
+  position: relative;
+	transition: 0.5s;
+}
+#contact > .sns > a:hover .icon{
+	transform: rotateY(360deg);
+}
+#contact > .sns > a:nth-child(1):before {
+  background-color: #3b5999;
+}
+#contact > .sns > a:nth-child(2):before {
+  background-color: #55acee;
+}
+#contact > .sns > a:nth-child(3):before {
+  background-color: #dd4b39;
+}
+#contact > .sns > a:nth-child(4):before {
+  background-color: #0077b5;
+}
+
+/***** footer *****/
+#footer {
+  text-align: center;
+  /* 배경색을 지정합니다. */
+  background-color: #535353;
+  /* 글자색을 지정합니다. */
+  color: #fff;
+
+  /* 위아래 여백을 주고 가운데로 정렬합니다.*/
+  padding: 30px 0;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+}
+
+
+/****** 미디어 쿼리  **********/
+
+/**** 테블릿 사이즈 ****/
+@media all and (min-width: 768px) and (max-width:1023px)
+{
+	#head > .gnb > label[for="menu_btn"] {
+    display: none;
+  }
+
+  #head > .gnb > .main_menu {
+    position: static;
+    display: flex;
+  }
+  #head > .gnb > input[id=menu_btn]:checked ~ .main_menu{
+    display: flex;
+  }
+
+	#portfolio > .container > div:nth-of-type(3) {
+    display: block;
+  }
+	#portfolio > .container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+	#portfolio > .container > .photo {
+    width: 40%;
+  }
+
+	#contact > .text {
+    display: block;
+    width: 70%;
+    margin: 20px auto;
+  }
+  #contact > .text > p {
+    margin-top: 5px;
+  }
+}
+
+/**** PC 사이즈 ****/
+@media all and (min-width: 1024px)
+{
+  #head{
+    width: 80%;
+  }
+	#head > .gnb > label[for="menu_btn"] {
+    display: none;
+  }
+
+  #head > .gnb > .main_menu {
+    display: flex;
+    position: static;
+  }
+  #head > .gnb > input[id=menu_btn]:checked ~ .main_menu{
+    display: flex;
+  }
+	#about {
+    width: 90%;
+    margin: 30px auto;
+    overflow: auto;
+  }
+  #about > .container {
+    position: static;
+    margin: 0 auto;
+  }
+	#about > .container > .item div{
+		padding: 10px;
+	}
+
+  #about > .tab_btn {
+    display: none;
+  }
+
+	#portfolio > .container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  #portfolio > .container > .photo {
+    width: 30%;
+  }
+
+  #portfolio > .container > div:nth-of-type(2) {
+    display: block;
+  }
+  #portfolio > .container > div:nth-of-type(3) {
+    display: block;
+  }
+
+	#contact > .text {
+    display: block;
+    width: 70%;
+    margin: 20px auto;
+  }
+  #contact > .text > p {
+    margin-top: 5px;
+  }
+}
