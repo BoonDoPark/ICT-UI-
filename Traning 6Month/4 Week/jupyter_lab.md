@@ -32,12 +32,12 @@ anaconda prompt에 jupyter lab을 입력하면 아래 사진처럼 Jupyter ab이
  
 ![캡처8](https://user-images.githubusercontent.com/76871728/141727082-f00c3b29-0964-4e19-ba12-1943c292e278.PNG)
 
+아래 사진처럼 385줄의 c.NotebookApp.notebook_dir = ''의 부분을 자기가 사용하는 파일경로로 넣어준 후 저장한다.
+
 ![캡처7](https://user-images.githubusercontent.com/76871728/141727190-7fb65bb0-4dd2-4dda-b92b-43609ccc7024.PNG)
 
-385줄의 c.NotebookApp.notebook_dir = ''의 부분을 자기가 사용하는 파일경로로 넣어준 후 저장한다.
+그 후 다시 anaconda prompt 명령어에 jupyter lab을 쓰면 자기가 사용하고 싶은 파일경로로 Jupyter Lab이 생성된다.
 
 ![캡처9](https://user-images.githubusercontent.com/76871728/141727334-20027f85-61dd-43f1-90d4-4d9e18a4884f.png)
-
-자기가 사용하고 싶은 파일경로로 Jupyter Lab이 생성된다.
 
 
